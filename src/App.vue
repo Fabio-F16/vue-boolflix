@@ -19,38 +19,41 @@ export default {
       apiKey: "7b0221641cd6cccd42ea4445b3c56e3d",
       query: "",
       films: [],
+      series: [],
     };
   },
   components: {
     HeaderComponent,
     MainComponent,
   },
-  created() {},
+
   methods: {
     searching(textToSearch) {
       this.query = textToSearch;
       console.log(this.query);
-      this.loadMovies();
-      this.loadFilms();
+      this.loadTotClips();
     },
-    loadMovies() {
-      this.loadData("movie");
+    loadTotClips() {
+      this.loadData("movie").then((response) => {
+        // console.log(response.data.results);
+        this.films = response.data.results;
+        console.log(this.films);
+      });
+      this.loadData("tv").then((response) => {
+        // console.log(response.data.results);
+        this.series = response.data.results;
+        console.log(this.series);
+      });
     },
-    loadFilms() {
-      this.loadData("tv");
-    },
+
     loadData(typeOfClip) {
       const params = {
         query: this.query,
         api_key: this.apiKey,
       };
-      axios
+      return axios
         .get(this.apiUrl + typeOfClip, { params })
-        .then((response) => {
-          // console.log(response.data.results);
-          this.films = response.data.results;
-          console.log(this.films);
-        })
+
         .catch((error) => {
           console.log("error" + error);
         });

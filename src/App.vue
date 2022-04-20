@@ -34,24 +34,22 @@ export default {
       console.log(this.query);
     },
     loadData() {
-      if (this.searching === false) {
-        // this.query = textToSearch;
-        // console.log(this.query);
-        const params = {
-          query: this.query,
-          api_key: this.apiKey,
-        };
-        axios
-          .get(this.apiUrl + "movie", { params })
-          .then((response) => {
-            // console.log(response.data.results);
-            this.films = response.data.results;
-            console.log(this.films);
-          })
-          .catch((error) => {
-            console.log("error" + error);
-          });
-      }
+      // this.query = textToSearch;
+      // console.log(this.query);
+      const params = {
+        query: this.query,
+        api_key: this.apiKey,
+      };
+      axios
+        .get(this.apiUrl + "movie", { params })
+        .then((response) => {
+          // console.log(response.data.results);
+          this.films = response.data.results;
+          console.log(this.films);
+        })
+        .catch((error) => {
+          console.log("error" + error);
+        });
     },
   },
 };

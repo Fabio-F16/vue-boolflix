@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComponent @searchEmit="loadData" />
+    <HeaderComponent @searchEmit="searching" />
     <MainComponent v-for="(film, index) in films" :key="index" :tv="film" />
   </div>
 </template>
@@ -19,25 +19,24 @@ export default {
       apiKey: "7b0221641cd6cccd42ea4445b3c56e3d",
       query: "",
       films: [],
-      searching: false,
+      // searching: false,
     };
   },
   components: {
     HeaderComponent,
     MainComponent,
   },
-
+  created() {},
   methods: {
-    // searching(textToSearch) {
-    //   // console.log(textToSearch);
-    //   this.query = textToSearch;
-    //   console.log(this.query);
-    // },
-    loadData(textToSearch) {
+    searching(textToSearch) {
+      // console.log(textToSearch);
+      this.query = textToSearch;
+      console.log(this.query);
+    },
+    loadData() {
       if (this.searching === false) {
-        this.searching = true;
-        this.query = textToSearch;
-        console.log(this.query);
+        // this.query = textToSearch;
+        // console.log(this.query);
         const params = {
           query: this.query,
           api_key: this.apiKey,

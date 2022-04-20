@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderComponent @searchEmit="searching" />
-    <MainComponent v-for="(film, index) in films" :key="index" :tv="film" />
+    <MainComponent :films="films" :series="series" />
   </div>
 </template>
 

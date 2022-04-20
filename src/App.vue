@@ -47,11 +47,9 @@ export default {
             // console.log(response.data.results);
             this.films = response.data.results;
             console.log(this.films);
-            this.searching = false;
           })
           .catch((error) => {
             console.log("error" + error);
-            this.searching = false;
           });
       }
     },

@@ -4,8 +4,9 @@
       v-model="textToSearch"
       type="text"
       placeholder="Ricerca serie o film"
+      @keyup.enter="sendText"
     />
-    <button @click="$emit('searchEmit', textToSearch)">Cerca</button>
+    <button @click="sendText">Cerca</button>
   </header>
 </template>
 
@@ -16,6 +17,11 @@ export default {
     return {
       textToSearch: "",
     };
+  },
+  methods: {
+    sendText() {
+      this.$emit("searchEmit", this.textToSearch);
+    },
   },
 };
 </script>

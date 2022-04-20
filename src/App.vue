@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <HeaderComponent @searchEmit="loadData" />
-    <MainComponent />
+    <MainComponent v-for="(film, index) in films" :key="index" :tv="film" />
   </div>
 </template>
 
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
 import MainComponent from "./components/MainComponent.vue";
+
 import axios from "axios";
 
 export default {
@@ -17,6 +18,7 @@ export default {
       apiUrl: "https://api.themoviedb.org/3/search/",
       apiKey: "7b0221641cd6cccd42ea4445b3c56e3d",
       query: "",
+      films: [],
     };
   },
   components: {
@@ -40,7 +42,9 @@ export default {
       axios
         .get(this.apiUrl + "tv", { params })
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
+          this.films = response.data.results;
+          console.log(this.films);
         })
         .catch((error) => {
           console.log("error" + error);
@@ -51,6 +55,5 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-}
+@import "~bootstrap/scss/bootstrap";
 </style>

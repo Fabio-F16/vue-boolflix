@@ -19,7 +19,6 @@ export default {
       apiKey: "7b0221641cd6cccd42ea4445b3c56e3d",
       query: "",
       films: [],
-      // searching: false,
     };
   },
   components: {
@@ -29,13 +28,11 @@ export default {
   created() {},
   methods: {
     searching(textToSearch) {
-      // console.log(textToSearch);
       this.query = textToSearch;
       console.log(this.query);
+      this.loadData();
     },
     loadData() {
-      // this.query = textToSearch;
-      // console.log(this.query);
       const params = {
         query: this.query,
         api_key: this.apiKey,

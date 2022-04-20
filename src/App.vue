@@ -30,15 +30,22 @@ export default {
     searching(textToSearch) {
       this.query = textToSearch;
       console.log(this.query);
-      this.loadData();
+      this.loadMovies();
+      this.loadFilms();
     },
-    loadData() {
+    loadMovies() {
+      this.loadData("movie");
+    },
+    loadFilms() {
+      this.loadData("tv");
+    },
+    loadData(typeOfClip) {
       const params = {
         query: this.query,
         api_key: this.apiKey,
       };
       axios
-        .get(this.apiUrl + "movie", { params })
+        .get(this.apiUrl + typeOfClip, { params })
         .then((response) => {
           // console.log(response.data.results);
           this.films = response.data.results;

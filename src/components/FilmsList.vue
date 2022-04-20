@@ -13,10 +13,9 @@
 
 <script>
 export default {
-  name: "MainComponent",
+  name: "FilmsLst",
   props: {
     tv: Object,
-    // serie: Object,
   },
 };
 </script>

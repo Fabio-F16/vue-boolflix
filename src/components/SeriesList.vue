@@ -1,30 +1,23 @@
 <template>
   <div>
     <div class="card">
-      <h2>{{ tv.title }}</h2>
-      <h5>{{ tv.original_title }}</h5>
-      <p>{{ tv.original_language }}</p>
-
-      <p>{{ tv.vote_average }}</p>
-    </div>
-    <!-- <div class="card">
-      <h2>{{ serie.name }}</h2>
-      <h5>{{ serie.original_name }}</h5>
+      <h2>{{ serie.title }}</h2>
+      <h5>{{ serie.original_title }}</h5>
       <p>{{ serie.original_language }}</p>
 
       <p>{{ serie.vote_average }}</p>
+      <p>Series list</p>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
 // import VueFlags from "@growthbunker/vueflags";
 
 export default {
-  name: "MainComponent",
+  name: "SeriesList",
   props: {
-    tv: Object,
-    // serie: Object,
+    serie: Object,
   },
 };
 </script>

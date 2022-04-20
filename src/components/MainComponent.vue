@@ -1,7 +1,7 @@
 <template>
   <div>
     <FilmsList v-for="(film, index) in films" :key="index" :tv="film" />
-    <SeriesList v-for="film in films" :key="film.id" :serie="film" />
+    <SeriesList v-for="serie in series" :key="serie.id" :serie="serie" />
   </div>
 </template>
 

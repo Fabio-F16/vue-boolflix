@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container d-flex justify-content-center">
     <FilmsList v-for="(film, index) in films" :key="index" :tv="film" />
     <SeriesList v-for="serie in series" :key="serie.id" :serie="serie" />
   </div>
@@ -19,16 +19,12 @@ export default {
   props: {
     films: Array,
     series: Array,
-    // tv: Object,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-h2 {
-  color: red;
-}
-p {
-  text-transform: uppercase;
+.container {
+  flex-wrap: wrap;
 }
 </style>

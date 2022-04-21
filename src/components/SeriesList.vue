@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     pathImg() {
-      const percorsoImg = this.pathUrl + "w500" + this.serie.poster_path;
+      const percorsoImg = this.pathUrl + "w342" + this.serie.poster_path;
       return percorsoImg;
     },
   },

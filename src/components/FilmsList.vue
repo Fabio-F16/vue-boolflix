@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <div class="card">
-      <img :src="pathImg" alt="tv.original_title" />
-      <h2>{{ tv.original_title }}</h2>
-      <h5>{{ tv.original_title }}</h5>
-      <p>{{ tv.original_language }}</p>
+  <div class="col-12 col-md-2">
+    <!-- <img :src="pathImg" alt="tv.original_title" /> -->
 
-      <p>{{ tv.vote_average }}</p>
-      <p>Films list</p>
-    </div>
-    <!-- https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png -->
+    <img :src="pathImg" alt="tv.id" />
+    <h2>{{ tv.original_title }}</h2>
+    <h5>{{ tv.original_title }}</h5>
+    <p>{{ tv.original_language }}</p>
+
+    <p>{{ tv.vote_average }}</p>
+    <p>Films list</p>
   </div>
 </template>
 
@@ -19,6 +18,7 @@ export default {
   data() {
     return {
       pathUrl: "https://image.tmdb.org/t/p/",
+      size: "w342",
     };
   },
   props: {
@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     pathImg() {
-      const percorsoImg = this.pathUrl + "w500" + this.tv.poster_path;
+      const percorsoImg = this.pathUrl + this.size + this.tv.poster_path;
       return percorsoImg;
     },
   },
@@ -34,6 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.info {
+  // display: none;
+}
 h2 {
   color: red;
 }

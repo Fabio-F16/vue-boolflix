@@ -35,14 +35,18 @@ export default {
     },
     loadTotClips() {
       this.loadData("movie").then((response) => {
-        // console.log(response.data.results);
-        this.films = response.data.results;
-        console.log(this.films);
+        if (response.status === 200) {
+          // console.log(response.data.results);
+          this.films = response.data.results;
+          console.log(this.films);
+        }
       });
       this.loadData("tv").then((response) => {
-        // console.log(response.data.results);
-        this.series = response.data.results;
-        console.log(this.series);
+        if (response.status === 200) {
+          // console.log(response.data.results);
+          this.series = response.data.results;
+          console.log(this.series);
+        }
       });
     },
 

@@ -1,7 +1,9 @@
 <template>
-  <div class="container d-flex justify-content-center">
-    <FilmsList v-for="(film, index) in films" :key="index" :tv="film" />
-    <SeriesList v-for="serie in series" :key="serie.id" :serie="serie" />
+  <div class="main">
+    <div class="container d-flex justify-content-center">
+      <FilmsList v-for="(film, index) in films" :key="index" :tv="film" />
+      <SeriesList v-for="serie in series" :key="serie.id" :serie="serie" />
+    </div>
   </div>
 </template>
 
@@ -24,6 +26,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main {
+  background-color: #141414;
+  height: calc(100vh - 75px);
+}
 .container {
   flex-wrap: wrap;
 }

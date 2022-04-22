@@ -1,14 +1,40 @@
 <template>
-  <div class="col-12 col-md-2">
-    <!-- <img :src="pathImg" alt="tv.original_title" /> -->
+  <div
+    @mouseover="isOver"
+    @mouseleave="isLeave"
+    class="ff-card col-12 col-md-2"
+  >
+    <div v-if="!cardOver">
+      <img :src="pathImg" alt="tv.id" />
+    </div>
+    <div v-else class="info">
+      <div class="d-flex">
+        <b>Titolo: </b>
+        <p>{{ tv.original_title }}</p>
+      </div>
 
-    <img :src="pathImg" alt="tv.id" />
-    <h2>{{ tv.original_title }}</h2>
-    <h5>{{ tv.original_title }}</h5>
-    <p>{{ tv.original_language }}</p>
+      <div class="d-flex">
+        <b>Titolo originale: </b>
+        <p>{{ tv.original_title }}</p>
+      </div>
 
-    <p>{{ tv.vote_average }}</p>
-    <p>Films list</p>
+      <div class="d-flex">
+        <b>Lingua: </b>
+        <p>{{ tv.original_language }}</p>
+      </div>
+
+      <div class="d-flex">
+        <b>Voto: </b>
+        <p>{{ tv.vote_average }}</p>
+      </div>
+
+      <div class="d-flex">
+        <b>Overview: </b>
+        <p>{{ tv.overview }}</p>
+      </div>
+
+      <p>Films list</p>
+    </div>
   </div>
 </template>
 
@@ -19,6 +45,7 @@ export default {
     return {
       pathUrl: "https://image.tmdb.org/t/p/",
       size: "w342",
+      cardOver: false,
     };
   },
   props: {
@@ -30,15 +57,33 @@ export default {
       return percorsoImg;
     },
   },
+  methods: {
+    isOver() {
+      this.cardOver = true;
+    },
+    isLeave() {
+      this.cardOver = false;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.info {
-  // display: none;
+.ff-card {
+  height: 315px;
+  // overflow-y: auto;
+  // overflow-y: auto;
+  font-size: 0.8rem;
 }
-h2 {
-  color: red;
+img {
+  width: 100%;
+}
+.info {
+  padding: 10px;
+  color: white;
+  background-color: #141414;
+  height: 100%;
+  overflow-y: scroll;
 }
 p {
   text-transform: uppercase;

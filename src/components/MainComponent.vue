@@ -29,6 +29,7 @@ export default {
 .main {
   background-color: #141414;
   height: calc(100vh - 75px);
+  overflow-y: auto;
 }
 .container {
   flex-wrap: wrap;

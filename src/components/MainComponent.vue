@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="container d-flex justify-content-center">
-      <FilmsList v-for="(film, index) in films" :key="index" :tv="film" />
+      <FilmsList v-for="film in films" :key="film.id" :tv="film" />
       <SeriesList v-for="serie in series" :key="serie.id" :serie="serie" />
     </div>
   </div>
